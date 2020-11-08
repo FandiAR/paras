@@ -2,13 +2,8 @@ const path = require('path');
 
 module.exports = {
   mode: 'production',
-  entry: {
-    page: './src/stories/Page.js',
-    button: './src/stories/Button.js',
-    header: './src/stories/Header.js',
-  },
   output: {
-    path: path.resolve("dist"),
+    path: path.resolve('dist'),
     filename: '[name].js',
     libraryTarget: 'commonjs2',
   },
@@ -20,33 +15,44 @@ module.exports = {
         use: 'babel-loader',
       },
       {
-        test: /\.css$/,
+        test: /\.scss$/,
         use: [
           'style-loader',
-          'css-loader'
-        ]
-      }
+          'css-loader',
+          'sass-loader',
+        ],
+      },
+      {
+        test: /\.(ttf|jpg|jpeg|woff|ico|eot|png|svg|pdf|woff(2)?)(\?[a-z0-9=&.]+)?$/,
+        loader: 'file-loader',
+        exclude: [
+          /\.(js|mjs|jsx|ts|tsx)$/,
+          /\.html$/,
+          /\.json$/,
+          /theme[/\\]icons[/\\][^/\\]+\.svg$/,
+        ],
+      },
     ],
   },
   resolve: {
     alias: {
-      'react': path.resolve(__dirname, './node_modules/react'),
+      react: path.resolve(__dirname, './node_modules/react'),
       'react-dom': path.resolve(__dirname, './node_modules/react-dom'),
-    }
+    },
   },
   externals: {
-    // Don't bundle react or react-dom      
+    // Don't bundle react or react-dom
     react: {
-      commonjs: "react",
-      commonjs2: "react",
-      amd: "React",
-      root: "React"
+      commonjs: 'react',
+      commonjs2: 'react',
+      amd: 'React',
+      root: 'React',
     },
-    "react-dom": {
-      commonjs: "react-dom",
-      commonjs2: "react-dom",
-      amd: "ReactDOM",
-      root: "ReactDOM"
-    }
-  }
+    'react-dom': {
+      commonjs: 'react-dom',
+      commonjs2: 'react-dom',
+      amd: 'ReactDOM',
+      root: 'ReactDOM',
+    },
+  },
 };
