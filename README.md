@@ -1,28 +1,72 @@
-## How to run
+# Paras
+
+Paras is a collection of ready to used UI component for reactjs
+
+## How to install
+
+Install Paras using npm
+
+```bash
+npm install github:FandiAR/paras
+```
+
+### Notes
+
+```
+Currently this package is on development stage and not yet publish. 
+Use github instead to install this package
+```
+
+## Simple Usage
+
+```javascript
+import './App.css';
+import { Page } from 'paras/dist/page'
+
+function App() {
+  return (
+    <div className="App">
+      <Page
+        onCreateAccount={() => {}}
+        onLogin={function noRefCheck() {}}
+        onLogout={function noRefCheck() {}}
+        user={{}}
+      />
+    </div>
+  );
+}
+
+export default App;
+```
+
+## See Paras In Action
 1. Clone this repo with following commands:
 
-    ```
-    git clone https://github.com/FandiAR/batixoft.git
+    ```bash
+    git clone https://github.com/FandiAR/paras.git
     ```
 2. Move to batixoft directory 
 
-    ```
-    cd batixoft
+    ```bash
+    cd paras
     ```
 3. Run npm install 
 
-    ```
+    ```bash
     npm install
     ```
 4. Run apps 
 
-    ```
+    ```bash
     npm run storybook
     ```
 5. Open browser with the following url 
 
     http://localhost:6006
 
+## Contributors
+1. [Fandi AR](https://github.com/FandiAR)
+2. [Mario Raspiantoro](https://github.com/raspiantoro)
 
 ## Contributing
 
