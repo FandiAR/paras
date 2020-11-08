@@ -3,7 +3,7 @@
   "author": {
     "name": "Fandi A Riyanto",
     "email": "fandiagusriyanto@gmail.com",
-    "url": "http://ponpesit.com/"
+    "url": "http://toughcode.blogspot.com/"
   },
   "version": "0.1.0",
   "dependencies": {
@@ -11,9 +11,11 @@
     "@testing-library/jest-dom": "^5.11.5",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
+    "node-sass": "^4.0.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-scripts": "4.0.0",
+    "sass-loader": "^10.0.5",
     "web-vitals": "^0.2.4"
   },
   "scripts": {
@@ -24,7 +26,9 @@
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006 -s public --no-dll",
     "build-storybook": "build-storybook -s public --no-dll",
-    "build-webpack": "webpack"
+    "build-webpack": "webpack",
+    "lint": "eslint ./src/components/** ./src/stories/** -c .eslintrc --ext js,jsx",
+    "lint-fix": "eslint ./src/components/** ./src/stories/** -c .eslintrc --fix --ext js,jsx"
   },
   "eslintConfig": {
     "extends": [
@@ -57,7 +61,15 @@
     "@storybook/node-logger": "^6.0.28",
     "@storybook/preset-create-react-app": "^3.1.4",
     "@storybook/react": "^6.0.28",
+    "babel-eslint": "^10.1.0",
     "babel-loader": "^8.1.0",
+    "eslint": "^7.13.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-react": "^7.21.5",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "file-loader": "^6.2.0",
     "prop-types": "^15.6.0",
     "react-is": "^17.0.1",
     "webpack-cli": "^4.1.0"
