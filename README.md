@@ -45,7 +45,7 @@ export default App;
     ```bash
     git clone https://github.com/FandiAR/paras.git
     ```
-2. Move to batixoft directory 
+2. Move to paras directory 
 
     ```bash
     cd paras
