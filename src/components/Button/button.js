@@ -11,12 +11,16 @@ const Button = ({
   const mode = primary
     ? 'paras-button--primary'
     : 'paras-button--secondary';
+  const { isLoading } = props;
   return (
     <button
       type="button"
-      className={['paras-button', `paras-button--${size}`, mode].join(
-        ' ',
-      )}
+      className={[
+        isLoading ? 'paras-button--loading' : 'paras-button',
+        isLoading ? `paras-button--loading--${size}` : `paras-button--${size}`,
+        isLoading ? '' : mode,
+      ].join(' ')}
+      disabled={isLoading}
       style={backgroundColor && { backgroundColor }}
       {...props}
     >
@@ -47,6 +51,11 @@ Button.propTypes = {
    * Optional click handler
    */
   onClick: PropTypes.func,
+
+  /**
+   * Style for button when loading something
+   */
+  isLoading: PropTypes.bool,
 };
 
 Button.defaultProps = {
@@ -54,4 +63,5 @@ Button.defaultProps = {
   primary: false,
   size: 'medium',
   onClick: undefined,
+  isLoading: false,
 };
