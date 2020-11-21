@@ -1,16 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './button.css';
+import './button.scss';
 
 /**
  * Primary UI component for user interaction
  */
-export const Button = ({ primary, backgroundColor, size, label, ...props }) => {
-  const mode = primary ? 'storybook-button--primary' : 'storybook-button--secondary';
+const Button = ({
+  primary, backgroundColor, size, label, ...props
+}) => {
+  const mode = primary
+    ? 'paras-button--primary'
+    : 'paras-button--secondary';
+  const { isLoading } = props;
   return (
     <button
       type="button"
-      className={['storybook-button', `storybook-button--${size}`, mode].join(' ')}
+      className={[
+        isLoading ? 'paras-button--loading' : 'paras-button',
+        isLoading ? `paras-button--loading--${size}` : `paras-button--${size}`,
+        isLoading ? '' : mode,
+      ].join(' ')}
+      disabled={isLoading}
       style={backgroundColor && { backgroundColor }}
       {...props}
     >
@@ -18,6 +28,7 @@ export const Button = ({ primary, backgroundColor, size, label, ...props }) => {
     </button>
   );
 };
+export default Button;
 
 Button.propTypes = {
   /**
@@ -40,6 +51,11 @@ Button.propTypes = {
    * Optional click handler
    */
   onClick: PropTypes.func,
+
+  /**
+   * Style for button when loading something
+   */
+  isLoading: PropTypes.bool,
 };
 
 Button.defaultProps = {
@@ -47,4 +63,5 @@ Button.defaultProps = {
   primary: false,
   size: 'medium',
   onClick: undefined,
+  isLoading: false,
 };
